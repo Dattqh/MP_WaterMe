@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.waterme.worker
 
 import android.app.NotificationChannel
@@ -32,40 +16,58 @@ import com.example.waterme.R
 import com.example.waterme.REQUEST_CODE
 import com.example.waterme.VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION
 import com.example.waterme.VERBOSE_NOTIFICATION_CHANNEL_NAME
+import kotlin.random.Random
 
 fun makePlantReminderNotification(
     message: String,
     context: Context
 ) {
+    println("makePlantReminderNotification: Creating notification with message: $message")
+
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
         val importance = NotificationManager.IMPORTANCE_HIGH
         val channel = NotificationChannel(
             CHANNEL_ID,
             VERBOSE_NOTIFICATION_CHANNEL_NAME,
             importance
-        )
-        channel.description = VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION
+        ).apply {
+            description = VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION
+        }
 
         val notificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
-
-        notificationManager?.createNotificationChannel(channel)
+        notificationManager?.createNotificationChannel(channel) ?: run {
+            println("Error: NotificationManager is null")
+            return
+        }
     }
 
     val pendingIntent: PendingIntent = createPendingIntent(context)
 
+    // Thông điệp ngẫu nhiên bằng tiếng Việt
+    val notificationMessages = listOf(
+        context.getString(R.string.time_to_water, message),
+        "Cây $message đang khát nước! Tưới ngay nhé!",
+        "Đừng quên tưới $message nha!",
+        "Hãy chăm sóc $message bằng một ít nước nào!"
+    )
+    val randomMessage = notificationMessages[Random.nextInt(notificationMessages.size)]
+
     val builder = NotificationCompat.Builder(context, CHANNEL_ID)
         .setSmallIcon(R.drawable.ic_launcher_foreground)
         .setContentTitle(NOTIFICATION_TITLE)
-        .setContentText(message)
+        .setContentText(randomMessage)
         .setPriority(NotificationCompat.PRIORITY_HIGH)
         .setVibrate(LongArray(0))
         .setContentIntent(pendingIntent)
         .setAutoCancel(true)
 
-    NotificationManagerCompat.from(context).notify(NOTIFICATION_ID, builder.build())
+    try {
+        NotificationManagerCompat.from(context).notify(NOTIFICATION_ID, builder.build())
+        println("makePlantReminderNotification: Notification sent successfully")
+    } catch (e: SecurityException) {
+        println("Error: Notification permission not granted - ${e.message}")
+    }
 }
 
 fun createPendingIntent(appContext: Context): PendingIntent {

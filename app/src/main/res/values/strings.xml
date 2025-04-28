@@ -1,47 +1,36 @@
-<!--
-    Copyright (C) 2023 The Android Open Source Project
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-         https://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
 <resources>
-    <string name="app_name">Water Me</string>
-    <string name="remind_me">Remind me to water %s in…</string>
-    <string name="five_seconds">5 seconds</string>
-    <string name="one_min">1 minutes</string>
-    <string name="two_min">2 minutes</string>
-    <string name="three_min">3 minutes</string>
-    <string name="water">Water</string>
-    <string name="time_to_water">It\'s time to water your %s.</string>
+    <string name="app_name">Tưới Cây</string>
 
-    <string name="lithop">Lithop</string>
-    <string name="carrot">Carrot</string>
-    <string name="peony">Peony</string>
-    <string name="pothos">Pothos</string>
-    <string name="fiddle_leaf_fig">Fiddle Leaf Fig</string>
-    <string name="strawberry">Strawberry</string>
-    <string name="daily">daily</string>
-    <string name="weekly">weekly</string>
-    <string name="monthly">monthly</string>
-    <string name="succulent">Succulent</string>
-    <string name="root">Root</string>
-    <string name="flower">Flower</string>
-    <string name="houseplant">Houseplant</string>
-    <string name="broadleaf_evergreen">Broadleaf evergreen</string>
-    <string name="fruit">Fruit</string>
-    <string name="stone_mimicking_succulent">Stone mimicking succulent</string>
-    <string name="hardy_root_vegetable">Hardy root vegetable</string>
-    <string name="spring_blooming_flower">Spring blooming flower</string>
-    <string name="indoor_vine">Indoor vine</string>
-    <string name="ornamental_fig">Ornamental fig</string>
-    <string name="delicious_multiple_fruit">Delicious multiple fruit</string>
+    <string name="xuong_rong_bong">Xương Rồng Bông</string>
+    <string name="cay_phat_loc">Cây Phát Lộc</string>
+    <string name="hoa_hong">Hoa Hồng</string>
+    <string name="cay_bang_singapore">Cây Bàng Singapore</string>
+    <string name="cay_duoi_con_ngua">Cây Đuôi Con Ngựa</string>
+    <string name="cay_nha_dam">Cây Nha Đam</string>
+
+    <string name="monthly">Hàng tháng</string>
+    <string name="daily">Hàng ngày</string>
+    <string name="weekly">Hàng tuần</string>
+
+    <string name="succulent">Xương rồng</string>
+    <string name="houseplant">Cây trong nhà</string>
+    <string name="flower">Hoa</string>
+    <string name="ornamental">Cây cảnh</string>
+
+    <string name="durable_desert_cactus">Cây xương rồng sa mạc bền bỉ</string>
+    <string name="good_luck_bamboo">Mang lại may mắn và tài lộc</string>
+    <string name="luxurious_flower">Hoa tượng trưng cho sự sang trọng</string>
+    <string name="large_leaf_tree">Cây lá to, lọc không khí tốt</string>
+    <string name="exotic_indoor_plant">Cây cảnh nội thất độc lạ</string>
+    <string name="aloe_vera_care">Dễ trồng, nhiều công dụng</string>
+
+    <string name="water">Tưới nước</string>
+    <string name="remind_me">Nhắc tôi tưới %s</string>
+    <string name="time_to_water">Đã đến lúc tưới %s!</string>
+
+    <string name="five_seconds">5 giây</string>
+    <string name="ten_seconds">10 giây</string>
+    <string name="twenty_seconds">20 giây</string>
+    <string name="thirty_seconds">30 giây</string>
+    <string name="one_minute">1 phút</string>
 </resources>
